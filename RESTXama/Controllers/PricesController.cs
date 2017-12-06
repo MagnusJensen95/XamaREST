@@ -29,7 +29,7 @@ namespace RESTXama.Controllers
 
         // GET: api/Prices/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetPrices([FromRoute] int id)
+        public IActionResult GetPrices([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
@@ -45,7 +45,7 @@ namespace RESTXama.Controllers
                 return NotFound();
             }
 
-            return Ok(prices);
+            return  Ok(prices);
         }
 
         // PUT: api/Prices/5
