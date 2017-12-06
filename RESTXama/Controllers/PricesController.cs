@@ -36,7 +36,7 @@ namespace RESTXama.Controllers
                 return BadRequest(ModelState);
             }
 
-            var prices = await _context.Prices.SingleOrDefaultAsync(m => m.ProductId == id);
+            var prices = await _context.Prices.SingleOrDefaultAsync(m => m.Id == id);
 
             if (prices == null)
             {
@@ -61,6 +61,7 @@ namespace RESTXama.Controllers
             }
 
             _context.Entry(prices).State = EntityState.Modified;
+           
 
             try
             {
