@@ -34,9 +34,11 @@ namespace RESTXama.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+
             }
 
-            var prices = await _context.Prices.SingleOrDefaultAsync(m => m.Id == id);
+            var prices = _context.Prices.Where(p => p.Id == id);
+            
 
             if (prices == null)
             {
